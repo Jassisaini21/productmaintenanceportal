@@ -64,7 +64,7 @@ input[type=submit]:hover {
     <label for="details">Details about product..</label>
     <textarea id="details" name="details" placeholder="Write something about product color and other features you want to offer.." style="height:200px"></textarea>
 
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" name="submit">
   </form>
 </div>
 

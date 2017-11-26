@@ -24,10 +24,7 @@
 </style>
 </head>
 <body>
-<div class="alert">
-  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>Successful!!</strong>... Indicates a successfull submission of product details..
-</div>
+
 <?php
 $con = mysqli_connect("127.0.0.1","root","");
 echo "connection created";
@@ -46,31 +43,33 @@ mysqli_select_db( $con,"jass");
 //return $db;
 }
 
-$sql = "create table product1
-(
-pname varchar(15),
-pid int PRIMARY KEY,
-cost varchar(15)
-)";
-mysqli_query($con,$sql);
-echo "Table created";
+
 $pname1=$pid1=$cost1="";
 if (isset($_POST['submit'])) {
       $pname1=$_POST['pname'];
       $pid1=$_POST['pid'];
       $cost1=$_POST['cost'];
 
-}
 
 
 
-$a=("INSERT INTO product1 (pname, pid, cost)
-VALUES ('$pname1', '$pid1', '$cost1')");
-if (!mysqli_query($con,$a))
+$sql1="INSERT INTO product1 (pname,pid,cost)
+      VALUES
+      ('$pname1','$pid1','$cost1')";
+if (!mysqli_query($con,$sql1))
 {
 die('Error: ' . mysqli_error($con));
 }
+else
 echo "values inserted";
+}
+
+
+echo "<div class='alert'>
+  <span class='closebtn' onclick='this.parentElement.style.display='none';'>&times;</span> 
+  Successful!!<b>... Indicates a successfull submission of state details..</b>
+</div>";
+
 mysqli_close($con);
 ?>
 </body>
